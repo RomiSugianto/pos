@@ -11,10 +11,11 @@
 	</style>
 
 	<nav class="navbar navbar-light">
-		<form class="form-inline" action="paymentmethod/search" method="GET">
+		<form class="form-inline" action="./search" method="GET">
 		<input class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search" value="{{ old('search') }}">
 		<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 		</form>
+		<a class="btn btn-danger btn-sm" href="{{ url('paymentmethod/new') }}">+</a>
 	</nav>
 
 	<table class="table">

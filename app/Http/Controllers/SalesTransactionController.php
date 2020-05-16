@@ -64,5 +64,11 @@ class SalesTransactionController extends Controller
  
 		return view('salestransaction/salestransaction',['salestransaction' => $salestransaction]);
  
+    }
+    
+    public function test(Request $request)
+	{
+		return 'test';
+ 
 	}
 }

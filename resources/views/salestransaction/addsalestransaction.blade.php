@@ -2,37 +2,60 @@
  
 @section('content')
  
-	<div class="container">
-		<div class="row justify-content-center">
-			<div class="col-md-8">
-				<div class="card">
-					<div class="card-header">{{ __('NEW OUTLET') }}</div>
+<html>  
+	<head>  
+		 <title>Dynamically Add or Remove input fields in PHP with JQuery</title>  
+		 {{-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />  
+		 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>  
+		 <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>   --}}
+	</head>  
+	<body>  
+		<div class="container">  
+			<br />  
+			<br />  
+			<h2 align="center">ADD NEW TRANSACTION</h2>  
+			<div class="form-group">  
+				<form action="../test" name="add_name" id="add_name">
+					{{ csrf_field() }}
+					<div class="table-responsive">  
+						<table class="table table-bordered" id="dynamic_field">  
+							<tr>  
+								<td><input type="text" name="name[]" placeholder="Enter Product Id" class="form-control name_list" /></td>  
+								<td><button type="button" name="add" id="add" class="btn btn-success">Add More</button></td>  
+							</tr>  
+						</table>  
+						<input type="button" name="submit" id="submit" class="btn btn-info" value="Submit" />  
+					</div>  
+				</form>  
+			</div>  
+		</div>  
+	</body>  
+</html>  
+<script>  
+$(document).ready(function(){  
+	var i=1;  
+	$('#add').click(function(){  
+		 i++;  
+		 $('#dynamic_field').append('<tr id="row'+i+'"><td><input type="text" name="name[]" placeholder="Enter Product Id"" class="form-control name_list" /></td><td><button type="button" name="remove" id="'+i+'" class="btn btn-danger btn_remove">X</button></td></tr>');  
+	});  
+	$(document).on('click', '.btn_remove', function(){  
+		 var button_id = $(this).attr("id");   
+		 $('#row'+button_id+'').remove();  
+	});  
+	$('#submit').click(function(){            
+		 $.ajax({  
+			  url:"../test",  
+			  method:"POST",  
+			  data:$('#add_name').serialize(),  
+			  success:function(data)  
+			  {  
+				   alert(data);  
+				   $('#add_name')[0].reset();  
+			  }  
+		 });  
+	});  
+});  
+</script>
 
-					<div class="card-body">
-						<form action="./add" class="form" method="post">
-							{{ csrf_field() }}
-							<table class="table" width="25%" border="0">
-								<tr>
-									<td>Outlet ID</td>
-									<td><input type="txt" name="id" placeholder="ID" required="required"/></td>
-								</tr>
-								<tr>
-									<td>address</td>
-									<td><input type="text" name="address" placeholder="Address" required="required"/></td>
-								</tr>
-								<tr>
-									<td>Phone Number</td>
-									<td><input type="tel" id="phone" name="phone_number" placeholder="0123456789" pattern="[0-9]{11,15}" required="required"/></td>
-								</tr>
-									<td></td>
-									<td><button type="submit" name="Submit" class="btn btn-primary">Add</button></td>
-								</tr>
-							</table>
-						</form>
-					</div>
-				</div>
-			</div>
-		</div>
-	</div>
  
 @endsection

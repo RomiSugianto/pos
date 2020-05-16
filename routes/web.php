@@ -58,3 +58,4 @@ Route::get('salestransaction/edit/{id}', 'SalesTransactionController@edit');
 Route::post('salestransaction/update', 'SalesTransactionController@update');
 Route::get('salestransaction/delete/{id}', 'SalesTransactionController@delete');
 Route::get('salestransaction/search', 'SalesTransactionController@search');
+Route::post('salestransaction/test', 'SalesTransactionController@test');
