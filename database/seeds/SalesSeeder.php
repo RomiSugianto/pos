@@ -21,6 +21,8 @@ class SalesSeeder extends Seeder
                 'id' => 'sls'.$faker->date($format = 'Ymd', $max = 'now').$i,
                 'name' => $faker->name,
                 'phone_number' => $faker->e164PhoneNumber,
+                'username' => $faker->userName,
+                'password' => bcrypt('secret'),
             ]);
         }
     }

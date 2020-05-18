@@ -18,6 +18,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::post('auth', 'SalesController@auth');
 
 Route::get('sales', 'SalesController@index');
 Route::get('sales/new', 'SalesController@new');
