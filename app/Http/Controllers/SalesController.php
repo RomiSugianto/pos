@@ -66,18 +66,4 @@ class SalesController extends Controller
  
     }
     
-    public function auth(Request $request)
-	{
-        $username = $request->username;
-        $password = $request->password;
-        $sales = Sales::where('username', '=', $username)
-                        ->where('password', '=', $password)->get();
-        if ($sales->count() > 0) {
-            session(['name' => $sales->first()->name]);
-            return session('name');
-        }else {
-            return redirect('/');
-        }
- 
-	}
 }

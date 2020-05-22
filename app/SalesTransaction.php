@@ -10,11 +10,11 @@ class SalesTransaction extends Model
     public $incrementing=false;
 
     public function product(){
-    	return $this->belongsToMany('App\Product', 'product_in_transaction', 'sales_transaction_id', 'product_id');
+    	return $this->belongsToMany('App\Product', 'product_in_transaction', 'sales_transaction_id', 'product_id')->withPivot('quantity')->withTimestamps();
     }
 
     public function paymentMethod(){
-    	return $this->belongsToMany('App\PaymentMethod', 'payment', 'sales_transaction_id', 'payment_method_id');
+    	return $this->belongsToMany('App\PaymentMethod', 'payment', 'sales_transaction_id', 'payment_method_id')->withPivot('payment_amount','card_number')->withTimestamps();
     }
 
     public function sales(){

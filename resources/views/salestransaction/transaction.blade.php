@@ -37,7 +37,7 @@
 			<td>
 				<a class="btn btn-warning btn-sm" href="{{ url('salestransaction/edit/'.$st->id) }}">Edit</a>
 				|
-				<a class="btn btn-danger btn-sm" href="{{ url('salestransaction/delete/'.$st->id) }}">Delete</a>
+				<a class="btn btn-danger btn-sm" href="{{ url('salestransaction/delete/'.$st->id) }}" onclick="return confirm('Are you sure?')">Delete</a>
 			</td>
 		</tr>
 		@endforeach

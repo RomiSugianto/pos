@@ -24,7 +24,7 @@
 			<th>OUTLET</th>
 			<th>SALES</th>
 			<th>TRANSACTION DATE</th>
-			<th>SELLING PRICE</th>
+			<th>TOTAL SELLING PRICE</th>
 			<th>OPTION</th>
 		</tr>
 		@foreach($salestransaction as $st)
@@ -32,8 +32,8 @@
 			<td>{{ $st->id }}</td>
 			<td>{{ $st->sales_outlet_id }}</td>
 			<td>{{ $st->sales_id }}</td>
-			<td>{{ $st->transaction_date }}</td>
-			<td>{{ $st->selling_price }}</td>
+			<td>{{ $st->created_at }}</td>
+			<td>{{ $st->total_selling_price }}</td>
 			<td>
 				<a class="btn btn-warning btn-sm" href="{{ url('salestransaction/edit/'.$st->id) }}">Edit</a>
 				|

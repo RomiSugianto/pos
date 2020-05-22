@@ -14,11 +14,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
-Route::post('auth', 'SalesController@auth');
+Route::get('/', 'HomeController@index');
+Route::post('auth', 'HomeController@auth');
 
 Route::get('sales', 'SalesController@index');
 Route::get('sales/new', 'SalesController@new');
@@ -59,4 +56,5 @@ Route::get('salestransaction/edit/{id}', 'SalesTransactionController@edit');
 Route::post('salestransaction/update', 'SalesTransactionController@update');
 Route::get('salestransaction/delete/{id}', 'SalesTransactionController@delete');
 Route::get('salestransaction/search', 'SalesTransactionController@search');
-Route::post('salestransaction/test', 'SalesTransactionController@test');
+Route::get('salestransaction/test', 'SalesTransactionController@test');
+Route::post('salestransaction/testadd', 'SalesTransactionController@testadd');

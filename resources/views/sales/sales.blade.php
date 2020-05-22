@@ -33,7 +33,7 @@
 			<td>
 				<a class="btn btn-warning btn-sm" href="sales/edit/{{ $s->id }}">Edit</a>
 				|
-				<a class="btn btn-danger btn-sm" href="sales/delete/{{ $s->id }}">Delete</a>
+				<a class="btn btn-danger btn-sm" href="sales/delete/{{ $s->id }}" onclick="return confirm('Are you sure?')">Delete</a>
 			</td>
 		</tr>
 		@endforeach
