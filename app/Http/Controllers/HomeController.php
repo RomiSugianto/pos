@@ -4,12 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Sales;
+use App\SalesOutlet;
 
 class HomeController extends Controller
 {
     public function index()
     {
-        return view('welcome');
+        return view('home/welcome');
+    }
+
+    public function login()
+    {
+        return view('home/login');
     }
 
     public function auth(Request $request)
@@ -21,10 +27,27 @@ class HomeController extends Controller
         if ($sales->count() > 0) {
             session(['sales_id' => $sales->first()->id]);
             session(['name' => $sales->first()->name]);
-            return session('name');
+            return redirect('listoutlet');
         }else {
             return redirect('/');
         }
- 
-	}
+    }
+
+    public function logout()
+    {
+        session()->flush();
+        return view('home/login');
+    }
+    
+    public function listOutlet()
+    {
+        $list_outlet = SalesOutlet::all();
+        return view('home/listOutlet', ['list_outlet' => $list_outlet]);
+    }
+
+    public function selectOutlet(Request $request)
+    {
+        session (['sales_outlet_id' => $request->outlet]);
+        return redirect('/');
+    }
 }

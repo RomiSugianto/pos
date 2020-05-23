@@ -15,7 +15,11 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'HomeController@index');
+Route::get('login', 'HomeController@login');
 Route::post('auth', 'HomeController@auth');
+Route::get('logout', 'HomeController@logout');
+Route::get('listoutlet', 'HomeController@listOutlet');
+Route::post('selectoutlet', 'HomeController@selectOutlet');
 
 Route::get('sales', 'SalesController@index');
 Route::get('sales/new', 'SalesController@new');
@@ -52,9 +56,8 @@ Route::get('paymentmethod/search', 'PaymentMethodController@search');
 Route::get('salestransaction', 'SalesTransactionController@index');
 Route::get('salestransaction/new', 'SalesTransactionController@new');
 Route::post('salestransaction/add', 'SalesTransactionController@add');
+Route::post('salestransaction/addpaymentmethod', 'SalesTransactionController@addPaymentMethod');
 Route::get('salestransaction/edit/{id}', 'SalesTransactionController@edit');
 Route::post('salestransaction/update', 'SalesTransactionController@update');
 Route::get('salestransaction/delete/{id}', 'SalesTransactionController@delete');
 Route::get('salestransaction/search', 'SalesTransactionController@search');
-Route::get('salestransaction/test', 'SalesTransactionController@test');
-Route::post('salestransaction/testadd', 'SalesTransactionController@testadd');

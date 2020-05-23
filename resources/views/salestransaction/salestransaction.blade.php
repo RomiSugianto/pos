@@ -30,10 +30,10 @@
 		@foreach($salestransaction as $st)
 		<tr>
 			<td>{{ $st->id }}</td>
-			<td>{{ $st->sales_outlet_id }}</td>
-			<td>{{ $st->sales_id }}</td>
+			<td>{{ $st->salesOutlet->address }}</td>
+			<td>{{ $st->sales->name }}</td>
 			<td>{{ $st->created_at }}</td>
-			<td>{{ $st->total_selling_price }}</td>
+			<td>{{ 'Rp. ' . number_format($st->total_selling_price) }}</td>
 			<td>
 				<a class="btn btn-warning btn-sm" href="{{ url('salestransaction/edit/'.$st->id) }}">Edit</a>
 				|

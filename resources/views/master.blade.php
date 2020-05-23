@@ -26,8 +26,24 @@
                             <a href="{{ url('paymentmethod') }}">Payment Method</a>
                             <a href="{{ url('salestransaction') }}">Sales Transaction</a>
                         </div>
+                        <div class="top-right links">
+                            @if ( session ('sales_id') == null )
+                                <a href="{{ url('login') }}">Login</a>
+                            @else
+                                <a href="{{ url('/') }}">{{ session ('name') }}</a>
+                                <a href="{{ url('logout') }}">Logout</a>
+                            @endif
+                        </div>
                     </li>
                 </ul>
+                {{-- <div class="top-right links">
+                    @if ( session ('sales_id') == null )
+                        <a href="{{ url('login') }}">Login</a>
+                    @else
+                        <a href="{{ url('/') }}">{{ session ('name') }}</a>
+                        <a href="{{ url('logout') }}">Logout</a>
+                    @endif
+                </div> --}}
             </div>
         </nav>
         <main class="py-4">
@@ -36,7 +52,7 @@
 
         <div>
             <footer>
-                <p>&copy; copyrights 2020</p>
+                <p>&copy; copyrights {{ date("Y") }}</p>
             </footer>
         </div>
     </body>

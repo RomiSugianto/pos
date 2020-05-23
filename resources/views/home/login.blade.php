@@ -20,6 +20,7 @@
 									<td>Password</td>
 									<td><input type="password" name="password" placeholder="Password" required="required"/></td>
 								</tr>
+								<tr>
 									<td></td>
 									<td><button type="submit" name="Submit" class="btn btn-primary">login</button></td>
 								</tr>

@@ -5,7 +5,7 @@
 <div class="container">  
 	<h2 align="center">ADD NEW TRANSACTION</h2>  
 	<div class="form-group">  
-		<form action={{ url('salestransaction/testadd') }} name="add_transaction" id="add_transaction" method="post">
+		<form action={{ url('salestransaction/add') }} name="add_transaction" id="add_transaction" method="post">
 			{{ csrf_field() }}
 			<div class="table-responsive">  
 				<table class="table table-bordered" id="dynamic_field">  
