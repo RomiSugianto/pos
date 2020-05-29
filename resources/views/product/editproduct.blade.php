@@ -21,6 +21,7 @@
 				<td>Selling Price</td>
 				<td><input type="number" name="selling_price" min="0" step="any" max="999999999" value="{{$p->selling_price}}"/>
 			</tr>
+			<tr>
 				<td></td>
 				<td><input type="submit" name="Submit" value="Submit"></td>
 			</tr>

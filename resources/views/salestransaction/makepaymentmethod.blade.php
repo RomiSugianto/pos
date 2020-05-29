@@ -21,7 +21,7 @@
 						</td>
 						<td><input type="number" name="payment_amount" placeholder="Payment Amount" min="0" step="any" max="999999999" class="form-control name_list" /></td>
 						<td><input type="tel" name="card_number" placeholder="Card_number" class="form-control name_list" /></td>
-						<td><input type="hidden" name="salestransaction" value="{{ $salestransaction->id }}" /></td>
+						<input type="hidden" name="salestransaction" value="{{ $salestransaction->id }}" />
 					</tr>
 				</table>  
 				<input type="submit" name="submit" id="submit" class="btn btn-info" value="Submit" />

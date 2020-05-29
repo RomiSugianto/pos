@@ -79,24 +79,19 @@ class SalesTransactionController extends Controller
         return redirect('salestransaction');
     }
 
-    public function edit($id)
+    public function detail($id)
     {
-        $salestransaction = DB::table('sales_transaction')->where('id',$id)->get();
-        return view('salestransaction/editsalestransaction',['salestransaction' => $salestransaction]);    
-    }
-
-    public function update(Request $request)
-    {
-        DB::table('sales_transaction')->where('id',$request->id)->update([
-            'address' => $request->address,
-            'phone_number' => $request->phone_number,
-        ]);
-        return redirect('salestransaction');
+        $salestransaction = SalesTransaction::where('id',$id)->get();
+        return view('salestransaction/detailsalestransaction',['salestransaction' => $salestransaction]);
+        // return $salestransaction->paymentMethod()->name;
     }
 
     public function delete($id)
     {
-        DB::table('sales_transaction')->where('id',$id)->delete();
+        $salestransaction = SalesTransaction::find($id);
+        $salestransaction->product()->detach();
+        $salestransaction->paymentMethod()->detach();
+        $salestransaction->delete();
         return redirect('salestransaction');
     }
 

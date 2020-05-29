@@ -57,7 +57,7 @@ Route::get('salestransaction', 'SalesTransactionController@index');
 Route::get('salestransaction/new', 'SalesTransactionController@new');
 Route::post('salestransaction/add', 'SalesTransactionController@add');
 Route::post('salestransaction/addpaymentmethod', 'SalesTransactionController@addPaymentMethod');
-Route::get('salestransaction/edit/{id}', 'SalesTransactionController@edit');
+Route::get('salestransaction/detail/{id}', 'SalesTransactionController@detail');
 Route::post('salestransaction/update', 'SalesTransactionController@update');
 Route::get('salestransaction/delete/{id}', 'SalesTransactionController@delete');
 Route::get('salestransaction/search', 'SalesTransactionController@search');

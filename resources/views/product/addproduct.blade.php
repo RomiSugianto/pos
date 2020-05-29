@@ -28,6 +28,7 @@
 									<td>Selling Price</td>
 									<td><input type="number" name="selling_price" placeholder="Price" min="0" step="any" max="999999999"/><td>
 								</tr>
+								<tr>
 									<td></td>
 									<td><button type="submit" name="Submit" class="btn btn-primary">Add</button></td>
 								</tr>

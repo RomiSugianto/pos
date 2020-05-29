@@ -35,9 +35,9 @@
 			<td>{{ $st->created_at }}</td>
 			<td>{{ 'Rp. ' . number_format($st->total_selling_price) }}</td>
 			<td>
-				<a class="btn btn-warning btn-sm" href="{{ url('salestransaction/edit/'.$st->id) }}">Edit</a>
+				<a class="btn btn-warning btn-sm" href="{{ url('salestransaction/detail/'.$st->id) }}">View</a>
 				|
-				<a class="btn btn-danger btn-sm" href="{{ url('salestransaction/delete/'.$st->id) }}">Delete</a>
+				<a class="btn btn-danger btn-sm" href="{{ url('salestransaction/delete/'.$st->id) }}" onclick="return confirm('Are you sure?')">Delete</a>
 			</td>
 		</tr>
 		@endforeach

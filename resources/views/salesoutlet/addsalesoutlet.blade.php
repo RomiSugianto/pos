@@ -24,6 +24,7 @@
 									<td>Phone Number</td>
 									<td><input type="tel" id="phone" name="phone_number" placeholder="0123456789" pattern="[0-9]{11,15}" required="required"/></td>
 								</tr>
+								<tr>
 									<td></td>
 									<td><button type="submit" name="Submit" class="btn btn-primary">Add</button></td>
 								</tr>

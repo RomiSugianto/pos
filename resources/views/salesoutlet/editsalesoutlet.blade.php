@@ -17,6 +17,7 @@
 				<td>Phone Number</td>
 				<td><input type="tel" id="phone" name="phone_number" placeholder="0123456789" pattern="[0-9]{11,15}" required="required" value="{{$o->phone_number}}"/>
 			</tr>
+			<tr>
 				<td></td>
 				<td><input type="submit" name="Submit" value="Submit"></td>
 			</tr>
