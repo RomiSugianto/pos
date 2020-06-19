@@ -1,7 +1,7 @@
 @extends('master')
- 
+
 @section('content')
- 
+
 	<style type="text/css">
 		.pagination li{
 			float: left;
@@ -11,7 +11,7 @@
 	</style>
 
 	<nav class="navbar navbar-light">
-		<form class="form-inline" action="salesoutlet/search" method="GET">
+		<form class="form-inline" action="salestransaction/search" method="GET">
 		<input class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search" value="{{ old('search') }}">
 		<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 		</form>
@@ -47,8 +47,8 @@
 	Page : {{ $salestransaction->currentPage() }} <br/>
 	Total Data : {{ $salestransaction->total() }} <br/>
 	Data Per Page : {{ $salestransaction->perPage() }} <br/>
- 
- 
+
+
 	{{ $salestransaction->links() }}
- 
+
 @endsection
