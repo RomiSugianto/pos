@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 use App\Sales;
 
 class SalesController extends Controller
@@ -17,7 +18,7 @@ class SalesController extends Controller
 
     public function new()
     {
- 
+
     	return view('sales/addsales');
     }
 
@@ -27,16 +28,20 @@ class SalesController extends Controller
             'id' => $request->id,
             'name' => $request->name,
             'phone_number' => $request->phone_number,
+            'username' => $request->username,
+            'password' => Hash::make($request->password, [
+                'rounds' => 12
+            ]),
         ]);
         return redirect('sales');
-    
+
     }
 
     public function edit($id)
     {
         $sales = DB::table('sales')->where('id',$id)->get();
         return view('sales/editsales',['sales' => $sales]);
-    
+
     }
 
     public function update(Request $request)
@@ -57,13 +62,13 @@ class SalesController extends Controller
     public function search(Request $request)
 	{
 		$search = $request->search;
- 
+
 		$sales = DB::table('sales')
 		->where('name','like',"%".$search."%")
 		->paginate();
- 
+
 		return view('sales/sales',['sales' => $sales]);
- 
+
     }
-    
+
 }

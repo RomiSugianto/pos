@@ -1,7 +1,7 @@
 @extends('master')
- 
+
 @section('content')
- 
+
 	<div class="container">
 		<div class="row justify-content-center">
 			<div class="col-md-8">
@@ -24,6 +24,14 @@
 									<td>Phone Number</td>
 									<td><input type="tel" id="phone" name="phone_number" placeholder="0123456789" pattern="[0-9]{11,15}" required="required"/></td>
 								</tr>
+                                <tr>
+                                    <td>Username</td>
+                                    <td><input type="text" name="username" placeholder="Username" required="required"/></td>
+                                </tr>
+                                <tr>
+                                    <td>Password</td>
+                                    <td><input type="password" name="password" placeholder="Password" required="required"/></td>
+                                </tr>
 								<tr>
 									<td></td>
 									<td><button type="submit" name="Submit" class="btn btn-primary">Add</button></td>
@@ -35,5 +43,5 @@
 			</div>
 		</div>
 	</div>
- 
+
 @endsection
