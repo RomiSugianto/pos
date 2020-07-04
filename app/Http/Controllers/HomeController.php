@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use App\Sales;
 use App\SalesOutlet;
 
@@ -22,13 +23,13 @@ class HomeController extends Controller
 	{
         $username = $request->username;
         $password = $request->password;
-        $sales = Sales::where('username', '=', $username)
-                        ->where('password', '=', $password)->get();
-        if ($sales->count() > 0) {
+        $sales = Sales::where('username', '=', $username)->get();
+        $hashedpassword = $sales->first()->password;
+        if (Hash::check($password, $hashedpassword)) {
             session(['sales_id' => $sales->first()->id]);
             session(['name' => $sales->first()->name]);
             return redirect('listoutlet');
-        }else {
+        } else {
             return redirect('/');
         }
     }
@@ -38,7 +39,7 @@ class HomeController extends Controller
         session()->flush();
         return view('home/login');
     }
-    
+
     public function listOutlet()
     {
         $list_outlet = SalesOutlet::all();
